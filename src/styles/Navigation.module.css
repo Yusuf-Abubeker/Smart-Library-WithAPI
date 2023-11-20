@@ -1,0 +1,64 @@
+.nav {
+  background: #feda6a; /* Vibrant yellow background */
+  padding: 20px;
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav_item {
+  display: inline;
+  margin: 0 20px;
+  font-size: 18px; /* Slightly smaller text size */
+  text-transform: uppercase; /* Uppercase text */
+  font-weight: bold;
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: color 0.3s, transform 0.2s, background-color 0.3s; /* Add transitions */
+  display: flex;
+  align-items: center; /* Center the icon and text vertically */
+}
+
+.nav_item a {
+  text-decoration: none;
+  color: #ff6600; /* Orange text color */
+}
+
+.nav_item:hover {
+  color: #ff3300; /* Orange text color on hover */
+  transform: scale(1.1); /* Slightly scale up on hover for a playful effect */
+  background-color: #ffdb4d; /* Change background color on hover */
+}
+
+/* Style the icons */
+.nav_item svg {
+  font-size: 36px; /* Larger icon size */
+  margin-right: 10px; /* Add some spacing between the icon and text */
+  fill: #ff6600; /* Orange icon color */
+  transition: transform 0.2s; /* Add icon animation on hover */
+}
+
+/* Add icon animation on hover */
+.nav_item:hover svg {
+  transform: scale(1.2); /* Slightly scale up on hover */
+}
+
+/* Add a media query for smaller screens */
+@media (max-width: 768px) {
+  .nav_list {
+    flex-direction: column;
+  }
+
+  .nav_item {
+    margin: 10px 0;
+  }
+}

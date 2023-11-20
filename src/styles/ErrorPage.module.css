@@ -1,0 +1,45 @@
+.error_page {
+  position: static; /* Fixed position to cover the viewport */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #ffcccc; /* Light pink background */
+  border: 2px solid #ff3399; /* Pink border */
+  border-radius: 0; /* No border radius */
+  font-family: 'Comic Sans MS', cursive; /* Playful font */
+}
+
+.error_title {
+  font-size: 36px;
+  color: #ff3399; /* Dark pink title */
+}
+
+.error_message {
+  font-size: 20px;
+  color: #333; /* Black message text */
+}
+
+/* ErrorPage.css */
+
+.error_image {
+  max-width: 400px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 50%; /* Rounded shape for the image */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
+  animation: bounce 2s infinite alternate; /* Add a fun animation */
+}
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-15px);
+    }
+  }

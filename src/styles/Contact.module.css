@@ -1,0 +1,71 @@
+.contact_page {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.contact_page h1 {
+  font-size: 36px;
+  color: #ff6600;
+  margin-top: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact_page p {
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.form_group {
+  margin: 20px 0;
+}
+
+label {
+  font-size: 24px;
+  color: #ff6600;
+  display: block;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ff6600;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #666;
+  font-size: 16px;
+}
+
+button {
+  background: #ff6600;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: 'Comic Sans MS', cursive;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: #ff3300;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation_message {
+  font-size: 24px;
+  color: #33cc33;
+  margin-top: 20px;
+}

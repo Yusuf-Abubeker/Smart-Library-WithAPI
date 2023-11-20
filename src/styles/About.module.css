@@ -1,0 +1,64 @@
+/* About.css */
+
+.about_page {
+  background: #ffcc00;
+  padding: 20px;
+  font-family: 'Chewy', cursive;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 1s;
+}
+
+.about_title {
+  font-size: 36px;
+  color: #ff6600;
+  margin-top: 10px;
+}
+
+.about_illustration {
+  max-width: 100%;
+  margin: 20px 0;
+  animation: fadeIn 1s;
+}
+
+.about_description {
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+  animation: fadeIn 1s;
+}
+
+.about_fun_facts {
+  font-size: 20px;
+  color: #333;
+  margin-top: 20px;
+  animation: fadeIn 1s;
+}
+
+.about_fun_facts ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.about_fun_facts li {
+  margin-top: 5px;
+}
+
+@keyframes bounceIn {
+  0%, 20%, 40%, 60%, 80% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateY(-15px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
