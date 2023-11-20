@@ -51,7 +51,35 @@
 .nav_item:hover svg {
   transform: scale(1.2); /* Slightly scale up on hover */
 }
+.add_new {
+  /* Styles for the "add new Book" button */
+  display: block;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background: linear-gradient(to right, #ff00cc, #ffcc00, #00ccff); /* Rainbow background */
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: bounce 1s infinite alternate; /* Bounce animation */
+}
 
+.add_new:hover {
+  background: linear-gradient(to right, #ff0055, #ffaa00, #0055ff); /* Rainbow background on hover */
+  transform: scale(1.1); /* Zoom in on hover */
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-10px);
+  }
+}
 /* Add a media query for smaller screens */
 @media (max-width: 768px) {
   .nav_list {

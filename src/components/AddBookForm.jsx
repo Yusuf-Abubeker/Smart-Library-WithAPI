@@ -6,7 +6,7 @@ import useBooks from "./useBooks";
 import BookListForAdmin from "./BookListForAdmin";
 
 const AddBookForm = () => {
-  const { data: books,error,isLoading } = useBooks();
+  const { data: books, error, isLoading, handleAddBook } = useBooks();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -31,42 +31,26 @@ const AddBookForm = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("category", category);
-    formData.append("image", imageFile);
-    formData.append("content", contentFile);
+    formData.append("image", imageFile.name);
+    formData.append("content", contentFile.name);
 
-    const token = localStorage.getItem("token");
-    console.log(token)
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:3000/child/books",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            "X-Auth-Token": token,
-      
-          },
-        }
-      );
+      await handleAddBook(formData);
 
-      if (response.status === 200) {
-        setSuccessMessage("Book submitted successfully!");
-        // Clear form fields and other state values if needed
-        setTitle("");
-        setDescription("");
-        setCategory("");
-        setImageFile(null);
-        setContentFile(null);
-      } else {
-        console.error("Failed to submit book.");
-        // Handle error cases
-      }
+      // Clear form fields and other state values if needed
+      setTitle("");
+      setDescription("");
+      setCategory("");
+      setImageFile(null);
+      setContentFile(null);
+      setSuccessMessage("Book submitted successfully!");
     } catch (error) {
       console.error("Error submitting book:", error);
-      // Handle network or other errors
+      // Handle error cases
     }
+  
   };
- if(isLoading) return <h2>Loading ....</h2>
+ if(isLoading) return <h2>Loading </h2>
   return (
     <>
       <div className={styles.addBookForm}>

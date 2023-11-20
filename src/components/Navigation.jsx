@@ -12,7 +12,7 @@ const Navigation = () => {
         <li className={styles.nav_item}><Link to="/child/about"><FaInfo/>About</Link></li>
         <li className={styles.nav_item}><Link to="/child/contact"><FaEnvelope/>Contact</Link></li>
       </ul>
-      <Link to="/login">signIn</Link>
+      <Link className={styles.add_new} to="/child/add">add new Book</Link>
     </nav>
   );
 };
