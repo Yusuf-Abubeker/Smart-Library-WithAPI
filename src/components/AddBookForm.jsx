@@ -1,6 +1,5 @@
 // AddBookForm.js
 import React, { useState } from "react";
-import axios from "axios"; // Import Axios
 import styles from "../styles/AddBookForm.module.css"; // Import your styles
 import useBooks from "./useBooks";
 import BookListForAdmin from "./BookListForAdmin";
@@ -31,9 +30,10 @@ const AddBookForm = () => {
     formData.append("title", title);
     formData.append("description", description);
     formData.append("category", category);
-    formData.append("image", imageFile.name);
-    formData.append("content", contentFile.name);
-
+    formData.append("image", imageFile);
+    formData.append("content", contentFile);
+    console.log(imageFile)
+    console.log(contentFile)
     try {
       await handleAddBook(formData);
 
@@ -51,6 +51,7 @@ const AddBookForm = () => {
   
   };
  if(isLoading) return <h2>Loading </h2>
+ if(error) return <h2>{error.message}</h2>
   return (
     <>
       <div className={styles.addBookForm}>
