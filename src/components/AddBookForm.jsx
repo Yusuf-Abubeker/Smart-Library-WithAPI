@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "../styles/AddBookForm.module.css"; // Import your styles
 import useBooks from "./useBooks";
 import BookListForAdmin from "./BookListForAdmin";
+import {useNavigate} from "react-router-dom"
 
 const AddBookForm = () => {
   const { data: books, error, isLoading, handleAddBook } = useBooks();
@@ -12,6 +13,13 @@ const AddBookForm = () => {
   const [imageFile, setImageFile] = useState(null);
   const [contentFile, setContentFile] = useState(null);
   const [successMessage, setSuccessMessage] = useState("");
+  const [authenticated, setAuthenticated] = useState(true); // Set the initial value based on the user's authentication status
+const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/child");
+    setAuthenticated(false);
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -32,8 +40,8 @@ const AddBookForm = () => {
     formData.append("category", category);
     formData.append("image", imageFile);
     formData.append("content", contentFile);
-    console.log(imageFile)
-    console.log(contentFile)
+    console.log(imageFile);
+    console.log(contentFile);
     try {
       await handleAddBook(formData);
 
@@ -41,17 +49,15 @@ const AddBookForm = () => {
       setTitle("");
       setDescription("");
       setCategory("");
-      setImageFile(null);
-      setContentFile(null);
       setSuccessMessage("Book submitted successfully!");
     } catch (error) {
       console.error("Error submitting book:", error);
       // Handle error cases
     }
-  
   };
- if(isLoading) return <h2>Loading </h2>
- if(error) return <h2>{error.message}</h2>
+  if (isLoading) return <h2>Loading </h2>;
+  if (error) return <h2>{error.message}</h2>;
+
   return (
     <>
       <div className={styles.addBookForm}>
@@ -117,8 +123,13 @@ const AddBookForm = () => {
       </div>
 
       <div>
-       <BookListForAdmin/>
+        <BookListForAdmin />
       </div>
+      {authenticated && (
+        <button onClick={handleLogout} className={styles.logoutButton}>
+          Logout
+        </button>
+      )}
     </>
   );
 };

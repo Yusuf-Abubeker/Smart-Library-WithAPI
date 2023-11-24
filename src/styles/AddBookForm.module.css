@@ -1,59 +1,83 @@
 /* AddBookForm.module.css */
+
 .addBookForm {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: #f5f5f5;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .addBookForm:hover {
-    transform: scale(1.02);
-  }
-  
-  .formTitle {
-    text-align: center;
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .formLabel {
-    display: block;
-    margin-bottom: 20px;
-  }
-  
-  .formInput,
-  .formTextarea {
-    width: 100%;
-    padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    transition: border-color 0.3s ease-in-out;
-  }
-  
-  .formInput:focus,
-  .formTextarea:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  .formButton {
-    background-color: #007bff;
-    color: #fff;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .formButton:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.addBookForm:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.inputField,
+.textareaField,
+.fileInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.inputField:focus,
+.textareaField:focus,
+.fileInput:focus {
+  border-color: #4caf50;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileInputLabel {
+  display: inline-block;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.fileInputLabel:hover {
+  background-color: #45a049;
+}
+
+.formButton {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.formButton:hover {
+  background-color: #45a049;
+}
+
+.successMessage {
+  color: #4caf50;
+  margin-top: 10px;
+}
+
+/* Add additional styles as needed */

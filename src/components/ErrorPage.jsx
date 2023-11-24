@@ -2,11 +2,12 @@ import React from "react";
 import styles from "../styles/ErrorPage.module.css";
 import img from "../assets/unicorn.png";
 import { useParams } from "react-router-dom";
-import books from "../data/bookData";
+import useBooks from "./useBooks";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
 const ErrorPage = () => {
+  const {books} = useBooks();
   const { bookId } = useParams();
   let msg;
   bookId >= books.length

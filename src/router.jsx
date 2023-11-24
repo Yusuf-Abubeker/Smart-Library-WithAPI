@@ -1,4 +1,5 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react"; // Import useState and useEffect
 import BookList from "./components/BookList";
 import Home from "./components/Home";
 import ErrorPage from "./components/ErrorPage";
@@ -9,22 +10,24 @@ import Layout from "./components/childLayout";
 import AddBookForm from "./components/AddBookForm";
 import Login from "./components/Login";
 import Signup from "./components/SignUp";
-import { jwtDecode } from "jwt-decode";
+import getUserRole from "./components/getUser";
 
-function getUserRole() {
-  const token = localStorage.getItem("token");
+function ProtectedRoute({ element }) {
+  const navigate = useNavigate();
+  const [userRole, setUserRole] = useState(getUserRole());
 
-  if (token) {
-    try {
-      const decodedToken = jwtDecode(token);
-      const userRole = decodedToken.username; // Update to the correct key for user role
-      return userRole;
-    } catch (error) {
-      console.error("Error decoding JWT token:", error);
+  useEffect(() => {
+    const role = getUserRole();
+    setUserRole(role);
+    if (!role) {
+      // Redirect to login if user is not authenticated
+      navigate("/child/login");
     }
-  }
-  return null;
+  }, []);
+
+  return userRole ? element : null;
 }
+
 const router = createBrowserRouter([
   {
     path: "/child",
@@ -38,11 +41,11 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       {
         path: "add",
-        element: getUserRole() === "yusuf" ? <AddBookForm /> : <Login />,
+        element: <ProtectedRoute element={<AddBookForm />} />,
       },
+      { path: "login", element: <Login /> },
     ],
   },
-  { path: "login", element: <Login /> },
   { path: "signup", element: <Signup /> },
 ]);
 

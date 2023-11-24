@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/signup.module.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
@@ -8,8 +9,8 @@ const Signup = () => {
     username: "",
     password: "",
   });
-  const [successMessage, setSuccessMessage] = useState('');
-
+  const [successMessage, setSuccessMessage] = useState("");
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -19,12 +20,11 @@ const Signup = () => {
     try {
       const response = await axios.post("http://127.0.0.1:3000/user", formData);
 
-      setSuccessMessage("user registered successfully")
+      setSuccessMessage("user registered successfully");
       localStorage.setItem("token", response.headers["x-auth-token"]);
-      // Redirect or handle success as needed
+      navigate("/child");
     } catch (error) {
-      console.error("Signup failed:", error.response.data.message);
-      setSuccessMessage("signup failed")
+      setSuccessMessage("signup failed:  " + error.response.data);
     }
   };
 
@@ -68,7 +68,11 @@ const Signup = () => {
           />
         </label>
         <br />
-        <button type="submit" onClick={handleSignup} className={styles.formButton}>
+        <button
+          type="submit"
+          onClick={handleSignup}
+          className={styles.formButton}
+        >
           Signup
         </button>
         <h3>{successMessage}</h3>

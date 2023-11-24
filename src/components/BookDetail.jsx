@@ -8,21 +8,23 @@ const BookDetail = () => {
   const navigate = useNavigate();
   const [isBookOpen, setIsBookOpen] = useState(false);
   const [book, setBook] = useState(null); // Store the selected book
+  const [isLoading, setIsLoading] = useState(true);
 
   const { bookId } = useParams();
 
   useEffect(() => {
     const fetchBook = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get(
           `http://127.0.0.1:3000/child/books/${bookId}`
         ); // Adjust the API endpoint
         setBook(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching book details:", error);
       }
     };
-
     fetchBook();
   }, [bookId]);
 
@@ -35,9 +37,14 @@ const BookDetail = () => {
     setIsBookOpen(true);
   };
 
+  if (isLoading) {
+    return <h2>Loading ...</h2>;
+  }
+  
   if (!book) {
     return <ErrorPage />;
   }
+
 
   return (
     <div className={styles.book_detail}>

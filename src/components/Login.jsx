@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "../styles/login.module.css";
 import axios from "axios";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import getUserRole from "./getUser";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -9,6 +10,8 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const [msg, setMsg] = useState("");
+
 
   const handleChange = (e) => {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
@@ -16,20 +19,23 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:3000/user/login", loginData);
+      const response = await axios.post(
+        "http://127.0.0.1:3000/user/login",
+        loginData
+      );
 
       console.log("Login successful!");
       localStorage.setItem("token", response.data.token);
-      navigate("/child/add")
+      getUserRole() === "yusuf" ? navigate("/child/add") : navigate("/child");
     } catch (error) {
-      console.error("Login failed:", error.response.data.message);
-      // Handle error, show error message, etc.
+      console.error("Login failed:", error.response.data);
+      setMsg(error.response.data);
     }
   };
 
   return (
     <div className={styles.loginContainer}>
-      <h2>Login</h2>
+      <h2 className={styles.heading}>Login</h2>
       <form>
         <label className={styles.formLabel}>
           Username:
@@ -62,7 +68,10 @@ const Login = () => {
         >
           Login
         </button>
-        <Link to="/signup">signup</Link>
+        {msg && <p>{msg}</p>}
+        <Link to="/signup" className={styles.signupLink}>
+          Signup
+        </Link>
       </form>
     </div>
   );

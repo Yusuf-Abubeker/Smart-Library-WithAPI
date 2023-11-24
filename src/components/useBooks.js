@@ -15,11 +15,15 @@ const fetchBooks = async () => {
 const addBook = async (bookData) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.post("http://127.0.0.1:3000/child/books", bookData, {
-      headers: {
-        "X-Auth-Token": token,
-      },
-    });
+    const response = await axios.post(
+      "http://127.0.0.1:3000/child/books",
+      bookData,
+      {
+        headers: {
+          "X-Auth-Token": token,
+        },
+      }
+    );
 
     return response.data;
   } catch (error) {
@@ -37,7 +41,7 @@ const deleteBook = async (bookId) => {
       },
     });
   } catch (error) {
-    throw new Error(`Error deleting book with ID ${bookId}`);
+    throw new Error(`Error deleting book with ID ${bookId}`, error);
   }
 };
 
