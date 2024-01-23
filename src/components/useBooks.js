@@ -1,10 +1,10 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
-import axios from "axios";
+import apiClient from "../services/api-client";
 
 // Fetches books data from the server
 const fetchBooks = async () => {
   try {
-    const response = await axios.get("http://127.0.0.1:3000/child/books");
+    const response = await apiClient.get("/child/books");
     return response.data;
   } catch (error) {
     throw new Error("Error fetching book data", error);
@@ -15,8 +15,8 @@ const fetchBooks = async () => {
 const addBook = async (bookData) => {
   const token = localStorage.getItem("token");
   try {
-    const response = await axios.post(
-      "http://127.0.0.1:3000/child/books",
+    const response = await apiClient.post(
+      "/child/books",
       bookData,
       {
         headers: {
@@ -35,7 +35,7 @@ const addBook = async (bookData) => {
 const deleteBook = async (bookId) => {
   const token = localStorage.getItem("token");
   try {
-    await axios.delete(`http://127.0.0.1:3000/child/books/${bookId}`, {
+    await apiClient.delete(`/child/books/${bookId}`, {
       headers: {
         "X-Auth-Token": token,
       },

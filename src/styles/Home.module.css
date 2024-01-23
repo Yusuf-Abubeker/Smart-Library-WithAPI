@@ -1,188 +1,275 @@
 .header {
-    background: linear-gradient(135deg, #FF7F00, #FF00CC);
-    text-align: center;
-    padding: 20px;
-    font-size: 20px;
-    font-family: 'Baloo Bhai', cursive;
-    color: #fff;
-    animation: rainbow 5s infinite ;
-    border-bottom: 5px solid #FF00CC;
+  background: linear-gradient(135deg, #ff7f00, #ff00cc);
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  font-family: "Baloo Bhai", cursive;
+  color: #fff;
+  animation: rainbow 5s infinite;
+  border-bottom: 5px solid #ff00cc;
 }
 
 @keyframes rainbow {
-    0% { color: #fff; }
-    14% { color: #ffba75; }
-    28% { color: #FFD500; }
-    42% { color: #00FF66; }
-    57% { color: #00CCFF; }
-    71% { color: #9400D3; }
-    85% { color: #ee8ddb; }
-    100% { color: #FF7F00; }
-}
-
-.featured_books {
-    text-align: center;
-    margin-top: 30px;
-    animation: fadeIn 2s;
-}
-
-.book_list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    animation: slideIn 2s;
-}
-
-.book_card {
-    background: #fff;
-    border: 5px solid #FF7F00;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: transform 0.3s;
-    font-family: 'Baloo', cursive;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    margin: 10px;
-    position: relative;
-}
-
-.book_card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    background: #FF00CC;
-}
-
-.book_cover {
-    max-width: 100%;
-    border-radius: 15px;
-}
-
-.read_more_link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #FF7F00;
+  0% {
     color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background 0.3s;
-    font-size: 20px;
-    font-family: 'Baloo', cursive;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.read_more_link:hover {
-    background: #FFD500;
-}
-
-.all_categories {
-    text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    border-radius: 15px;
-    background-color: #ffcc00; /* Vibrant background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 2s;
   }
-  
-  .all_categories h2 {
-    font-size: 32px;
-    color: #fff; /* White text for better contrast */
-    margin-bottom: 20px;
-    font-family: 'Baloo Bhai', cursive; /* Playful font */
+  14% {
+    color: #ffba75;
   }
-  
-.popular_categories {
-    text-align: center;
-    margin-top: 30px;
-    animation: fadeIn 2s;
+  28% {
+    color: #ffd500;
+  }
+  42% {
+    color: #00ff66;
+  }
+  57% {
+    color: #00ccff;
+  }
+  71% {
+    color: #9400d3;
+  }
+  85% {
+    color: #ee8ddb;
+  }
+  100% {
+    color: #ff7f00;
+  }
 }
-
-.category_list {
+.bookstoreSection {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.category_button {
-    display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    text-align: center;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 15px 20px;
-    border: 2px solid #ff6600;
-    border-radius: 10px;
-    background-color: #f8f8f8;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 40px;
+    background-color: #fddfdf;
+    animation: bounceIn 1s ease-in-out;
 }
 
-.category_button:hover {
-    background-color: #ff6600;
-    color: #fff;
-    border-color: #ff6600;
-}
-
-.category_button svg {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.call_to_action {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.btn {
-    display: inline-block;
-    background: #FF7F00;
-    color: #fff;
-    padding: 20px 40px;
-    border: none;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: background 0.3s;
-    font-size: 32px;
-    font-family: 'Baloo', cursive;
-}
-
-.btn:hover {
-    background: #FFD500;
-}
-
-@media screen and (max-width: 768px) {
-    .category_list {
-        flex-wrap: wrap;
-    }
-
-    .category_button {
-        flex: 1; 
-        margin: 5px; 
-    }
-}
-
-@keyframes fadeIn {
+@keyframes bounceIn {
     from {
         opacity: 0;
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
+.textContainer {
+    flex: 1;
+    text-align: left;
+}
+
+.storeName {
+    font-size: 32px;
+    color: #ff5370;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.mainHeading {
+    color: #00bcd4;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.storeDescription {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.readMoreButton {
+    background-color: #ffc107;
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.readMoreButton:hover {
+    background-color: #ff9800;
+    transform: scale(1.1);
+}
+
+.imageContainer {
+    flex: 1;
+    text-align: right;
+}
+
+.coverImage {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+.featured_books {
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 2s;
+}
+
+.book_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  animation: slideIn 2s;
+}
+
+.book_card {
+  background: #fff;
+  border: 5px solid #ff7f00;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
+  font-family: "Baloo", cursive;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin: 10px;
+  position: relative;
+}
+
+.book_card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  background: #ff00cc;
+}
+
+.book_cover {
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.read_more_link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #ff7f00;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 20px;
+  font-family: "Baloo", cursive;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.read_more_link:hover {
+  background: #ffd500;
+}
+
+.all_categories {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #ffcc00; /* Vibrant background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s;
+}
+
+.all_categories h2 {
+  font-size: 32px;
+  color: #fff; /* White text for better contrast */
+  margin-bottom: 20px;
+  font-family: "Baloo Bhai", cursive; /* Playful font */
+}
+
+.popular_categories {
+  text-align: center;
+  margin-top: 30px;
+  animation: fadeIn 2s;
+}
+
+.category_list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.category_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: 2px solid #ff6600;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.category_button:hover {
+  background-color: #ff6600;
+  color: #fff;
+  border-color: #ff6600;
+}
+
+.category_button svg {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.call_to_action {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  background: #ff7f00;
+  color: #fff;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: background 0.3s;
+  font-size: 32px;
+  font-family: "Baloo", cursive;
+}
+
+.btn:hover {
+  background: #ffd500;
+}
+
+@media screen and (max-width: 768px) {
+  .category_list {
+    flex-wrap: wrap;
+  }
+
+  .category_button {
+    flex: 1;
+    margin: 5px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes slideIn {
-    from {
-        transform: translateY(30px);
-    }
-    to {
-        transform: translateY(0);
-    }
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }

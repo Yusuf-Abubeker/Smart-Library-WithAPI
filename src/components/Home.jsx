@@ -2,15 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import bookImg from "../assets/book1.jfif";
+import coverImg from "/coverimage.jpg";
 import CategoryList from "./CategoryList";
 import styles from "../styles/Home.module.css";
 
 const Home = () => {
   return (
     <div className={styles.home}>
-      <header className={styles.header}>
-        <h1>Welcome to the Digital Smart Library for Kids</h1>
-      </header>
+      <section className={styles.bookstoreSection}>
+        <div className={styles.textContainer}>
+          <p className={styles.storeName}>Welcome to Yusuf Book Store</p>
+          <h1 className={styles.mainHeading}>For All Your Reading Needs</h1>
+          <p className={styles.storeDescription}>
+            Discover a world of books tailored for young minds
+          </p>
+          <button className={styles.readMoreButton}>Read More</button>
+        </div>
+        <div className={styles.imageContainer}>
+          <img
+            src={coverImg}
+            alt="Kids Reading"
+            className={styles.coverImage}
+          />
+        </div>
+      </section>
       <section className={styles.featured_books}>
         <h2>Featured Books</h2>
         <div className={styles.book_list}>

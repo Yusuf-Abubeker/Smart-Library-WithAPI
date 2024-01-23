@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../styles/signup.module.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import apiClient from "../services/api-client";
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:3000/user", formData);
+      const response = await apiClient.post("/user", formData);
 
       setSuccessMessage("user registered successfully");
       localStorage.setItem("token", response.headers["x-auth-token"]);

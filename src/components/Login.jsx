@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/login.module.css";
-import axios from "axios";
+import apiClient from "../services/api-client";
 import { Link, useNavigate } from "react-router-dom";
 import getUserRole from "./getUser";
 
@@ -19,8 +19,8 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:3000/user/login",
+      const response = await apiClient.post(
+        "/user/login",
         loginData
       );
 

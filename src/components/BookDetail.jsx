@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios"; // Import Axios
+import apiClient from "../services/api-client";
 import styles from "../styles/BookDetail.module.css";
 import ErrorPage from "./ErrorPage";
 
@@ -16,8 +16,8 @@ const BookDetail = () => {
     const fetchBook = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get(
-          `http://127.0.0.1:3000/child/books/${bookId}`
+        const response = await apiClient.get(
+          `/child/books/${bookId}`
         ); // Adjust the API endpoint
         setBook(response.data);
         setIsLoading(false);
